@@ -52,11 +52,9 @@ public class OrderApiController {
     }
 
     @GetMapping("/api/v3.1/orders")
-    public List<OrderDto> ordersV3(){
-        List<Order> orders = orderRepository.findAllWithItem();
-        for (Order order : orders) {
-            System.out.println("order ref="+order+" id="+order.getId());
-        }
+    public List<OrderDto> ordersV3_page(){
+        List<Order> orders = orderRepository.findAllWithMemberDelivery();
+
         List<OrderDto> result = orders.stream().map(order -> new OrderDto(order)).collect(Collectors.toList());
         return result;
     }
