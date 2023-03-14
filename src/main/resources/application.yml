@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:h2:tcp://localhost/~/jpashop;
+    url: jdbc:h2:tcp://localhost/~/springProject_DB/jpashop
     username: yeran
     password:
     driver-class-name: org.h2.Driver
@@ -12,6 +12,7 @@ spring:
       hibernate:
 #        show_sql: true
         format_sql: true
+        default_batch_fetch_size: 100
 
 logging:
   level:
